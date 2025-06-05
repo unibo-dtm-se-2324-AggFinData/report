@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Requirements | AggFin – Final Report</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Requirements" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Aggregation Service for Finance Data web app using Flask and Yfinance, Software Engineering" />
+<meta property="og:description" content="Aggregation Service for Finance Data web app using Flask and Yfinance, Software Engineering" />
+<link rel="canonical" href="http://localhost:4000/sections/02-requirements/" />
+<meta property="og:url" content="http://localhost:4000/sections/02-requirements/" />
+<meta property="og:site_name" content="AggFin – Final Report" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Requirements" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Aggregation Service for Finance Data web app using Flask and Yfinance, Software Engineering","headline":"Requirements","url":"http://localhost:4000/sections/02-requirements/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=246aeb39a62578e425e5d05086d68619fe42a74b">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">AggFin – Final Report</a></h1>
+      
+
+      <h1 id="requirements">Requirements</h1>
+
+<h2 id="functional-requirements">Functional Requirements</h2>
+
+<h3 id="1-user-account-management">1. User Account Management</h3>
+<p><strong>Requirement:</strong> Users must be able to register and log in a secure way
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Users can register with email, username, and password, and can log in and log out</li>
+  <li>Passwords securely hashed using Flask-Bcrypt</li>
+  <li>Sessions managed using Flask-Login</li>
+</ul>
+
+<h3 id="2-stock-search">2. Stock Search</h3>
+<p><strong>Requirement:</strong> Users must be able to search for real-time stock info 
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Users can enter a stock name(ticker) in a search form</li>
+  <li>Financial data fetched via the <code class="language-plaintext highlighter-rouge">yfinance</code> API</li>
+  <li>Search results display stock price, and some other info.</li>
+</ul>
+
+<h3 id="3-news-display">3. News Display</h3>
+<p><strong>Requirement:</strong> Users must be able to view related financial news<br />
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>The system fetches related articles using NewsAPI</li>
+  <li>At least 3 relevant articles displayed per stock</li>
+  <li>Articles include titles, sources, and links</li>
+</ul>
+
+<h3 id="4-autocomplete-suggestions">4. Autocomplete Suggestions</h3>
+<p><strong>Requirement:</strong> The system must help users find stock tickers in a faster way<br />
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>The app offers autocomplete suggestions after typing 2 characters</li>
+  <li>Suggestions are based on a predefined list of popular stocks</li>
+  <li>Suggestions update dynamically with user input</li>
+</ul>
+
+<h3 id="5-homepage-recommendations">5. Homepage Recommendations</h3>
+<p><strong>Requirement:</strong> Users should see useful suggestions on the homepage<br />
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>A list of 5 randomly chosen stock tickers is shown</li>
+  <li>Each suggestion includes the stock name(ticker) and a short description</li>
+</ul>
+
+<h3 id="6-error-handling">6. Error Handling</h3>
+<p><strong>Requirement:</strong> The system must handle errors gracefully<br />
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>404 error renders a custom “Page Not Found” page</li>
+  <li>500 error renders a custom “Internal Server Error” page</li>
+</ul>
+
+<hr />
+
+<h2 id="non-functional-requirements">Non-Functional Requirements</h2>
+
+<h3 id="1-performance">1. Performance</h3>
+<p><strong>Requirement:</strong> The app should respond quickly 
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Stock and news results appear within 2 seconds based on network speed and API</li>
+  <li>Minimal lag for autocomplete search</li>
+</ul>
+
+<h3 id="2-security">2. Security</h3>
+<p><strong>Requirement:</strong> User credentials and sessions must be protected<br />
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Passwords are stored using bcrypt hashing</li>
+  <li>Login/logout uses secure session cookies</li>
+  <li>SQL injection protection via SQLAlchemy ORM</li>
+</ul>
+
+<h3 id="3-usability">3. Usability</h3>
+<p><strong>Requirement:</strong> The UI should be responsive 
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Bootstrap ensures proper display on all screen sizes</li>
+  <li>Layout remains usable on both desktop and mobile</li>
+  <li>Inputs have clear placeholder text and labels</li>
+</ul>
+
+<hr />
+
+<h2 id="implementation-requirements">Implementation Requirements</h2>
+
+<h3 id="1-technology-stack">1. Technology Stack</h3>
+<p><strong>Requirement:</strong> The project must be built using course-approved technologies<br />
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Backend: Flask (Python)</li>
+  <li>Frontend: HTML5, CSS3, JavaScript (Jinja2 templating)</li>
+  <li>UI Framework: Bootstrap</li>
+  <li>Database: SQLite via SQLAlchemy</li>
+  <li>External APIs: <code class="language-plaintext highlighter-rouge">yfinance</code>, NewsAPI</li>
+  <li>GPT was used in some parts for debugging errors in coding.</li>
+</ul>
+
+<h3 id="2-development-standards">2. Development Standards</h3>
+<p><strong>Requirement:</strong> Codebase should follow proper structure 
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Code is modularized using Blueprints (<code class="language-plaintext highlighter-rouge">main</code>, <code class="language-plaintext highlighter-rouge">users</code>, <code class="language-plaintext highlighter-rouge">auth</code>)</li>
+  <li>App factory pattern used in <code class="language-plaintext highlighter-rouge">__init__.py</code></li>
+  <li>Configuration settings separated in <code class="language-plaintext highlighter-rouge">config.py</code></li>
+  <li>Error handlers and templates stored in dedicated directories</li>
+</ul>
+
+<h3 id="3-deployment-readiness">3. Deployment Readiness</h3>
+<p><strong>Requirement:</strong> The project should be easy to run 
+<strong>Acceptance Criteria:</strong></p>
+<ul>
+  <li>Installable via <code class="language-plaintext highlighter-rouge">requirements.txt</code></li>
+  <li>Launchable via <code class="language-plaintext highlighter-rouge">run.py</code></li>
+  <li>Jekyll report site can be previewed locally and deployed via GitHub Pages</li>
+</ul>
+
+<hr />
+
+<h2 id="glossary">Glossary</h2>
+
+<ul>
+  <li><strong>Stock Ticker</strong>: A short code representing a publicly traded company (e.g., AAPL, TSLA).</li>
+  <li><strong>yfinance</strong>: Python library fetch real-time stock data from Yahoo Finance.</li>
+  <li><strong>NewsAPI</strong>: API providing access to global news articles based on keywords.</li>
+  <li><strong>Autocomplete</strong>: A feature suggesting text while typing.</li>
+  <li><strong>ORM</strong>: Object-Relational Mapping, translates database tables into Python objects.(SQLAlchemy ORM)</li>
+  <li><strong>Blueprints</strong>: Flask design pattern for structuring routes/modules.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
