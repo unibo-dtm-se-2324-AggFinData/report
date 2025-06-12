@@ -67,6 +67,21 @@ Releases are done **manually**, no CI/CD pipeline currently implemented.
    flask run
    ```
 
+5. **Browser access explanation:**
+    ```bash
+    Once the server is running, open your browser and go to:
+    http://localhost:5000/
+    ```
+
+6. **How to stop the server:**
+    ```bash
+    Press `CTRL+C` in the terminal to stop the Flask server.
+    ```
+7. **How to deactivate the virtualenv:**
+    ```bash
+    deactivate
+    ```
+
 ## Choice of the License
 
 
