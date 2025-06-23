@@ -8,3 +8,7 @@ gem "just-the-docs", "0.4.2" # pinned to the current release
 
 gem "jekyll-remote-theme", "~> 0.4.0"
 gem "jekyll-include-cache", "~> 0.2.0"
+
+gem "csv"
+gem "logger"
+

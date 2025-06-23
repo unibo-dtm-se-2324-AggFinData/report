@@ -6,7 +6,7 @@ nav_order: 4
 
 # Design
 
-This section describes the strategies used to meet the requirements for the analysis. The design brings a clean separation of responsibilities, and keep the deployment simple. It is guided by layered architectural and Domain-Driven Design (DDD) for structure and scalability.
+This section is for the strategies for requirements necessary for analysis. In this design, there is a clean separation of responsibilities. It is guided by layered architectural and Domain-Driven Design (DDD) for structure and scalability.
 
 ---
 
@@ -15,8 +15,8 @@ This section describes the strategies used to meet the requirements for the anal
 ### Style
 
 - **Architectural Style**: Layered Architecture
-- **Why**: The application separates presentation (UI), logic (Flask routes), and data (ORM). This makes the system easy for more modification and improvments.
-- **Why not others**: Event-driven or shared-dataspace architectures are unnecessary here as the application is not distributed and does not require asynchronous messaging.
+- **Why**: The application separates presentation (UI), logic (Flask routes), and data (ORM), making the system easy for more modification and improvments.
+- **Why not others**: Event-driven or shared-dataspace architectures are unnecessary here as the application is not distributed(no need for asynchronous messaging)
 
 ### Actual Architecture
 
@@ -52,7 +52,7 @@ This project is not a distributed system, so infrastructure is intentionally min
 ### Components
 
 - **Client**: Any modern web browser
-- **Web Server**: Flask server running locally,  or can be usable to a cloud platform (e.g., Heroku, Render)
+- **Web Server**: Flask server running locally,  or can be usable to a cloud platform.
 - **Database**: SQLite data stored locally in same machine as Flask server
 - **External APIs**:
   - `yfinance`: fetch stock market data
@@ -64,8 +64,8 @@ Components (server, application logic, templates, and database) on a **single ma
 
 ### Network Layout
 
-- Components ommunication happens within the same process or host machine.
-- External API calls made over HTTPS to public third-party services (Yahoo Finance, NewsAPI).
+- Components ommunication within the same process or host machine.
+- External API calls over HTTPS to public third-party services (Yahoo Finance, NewsAPI).
 - No need for internal service discovery, DNS, or load balancing(monolithic app, everything runs on a single server, with a single database, and scaling across multiple services or machines)
 
 ### Naming and Addressing
