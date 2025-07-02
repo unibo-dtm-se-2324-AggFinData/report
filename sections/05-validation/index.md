@@ -20,6 +20,8 @@ A  practical testing approach is used. This project did not fully followed test-
 - 
 - **Test Client:** Flask’s built-in test client
 
+- **Coverage Tool:** `coverage.py` added for measuring code coverage
+
 This tool is chosen because of its simplicity and usablity with Flask applications. 
 
  

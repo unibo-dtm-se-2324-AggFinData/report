@@ -41,7 +41,15 @@ AggFin platform is suitable for deployment on any Python-compatible platform, in
 
 ## How Are They Released?
 
-Releases are done **manually**, no CI/CD pipeline currently implemented.
+Releases are now semi-automated and version-controlled.
+
+### Deployment & Packaging Strategy:
+
+- Application is versioned using `version.py`
+- Version is loaded after app creation, missed after first submission, and passed via `app.config['VERSION']`
+- Displayed dynamically on the frontend for future development (footer `home.html`)
+- Each release is tagged using **Semantic Versioning (SemVer)** format
+- Packaged using `setup.py`, then published to **PyPI** using GitHub Actions
 
 ### Configuration Steps
 
