@@ -6,6 +6,17 @@ nav_order: 3
 
 # Requirements
 
+## User Stories
+
+- As a **new user**,you want **create an account**, so that **you can access personalized features**.
+- As a **registered user**, you want to **log in securely**, so that **your personal data is protected**.
+- As a **user**, you want **search for stock tickers**, so **you can get real-time data**.
+- As a **user**, you want to **view related financial news**, so **you can make informed decisions**.
+- As a **user**, you want **see autocomplete suggestions**, so **you can find stock symbols quickly**.
+- As a **user**, you want **see stock recommendations**, so that **you can discover new options**.
+- As a **developer**, you want **system to be published on PyPI**, so **others can install and reuse it**.
+
+
 ## Functional Requirements
 
 ### 1. User Account Management
