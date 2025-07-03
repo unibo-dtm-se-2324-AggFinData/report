@@ -34,12 +34,18 @@ artifact/
 ├── migrations/              # Flask-Migrate DB scripts
 ├── instance/                # SQLite DB lives here
 ├── tests/                   # Unit and integration tests
+├── .github/workflows/      # GitHub Actions for CI and PyPI deployment
 ├── run.py                   # App entry point
 ├── requirements.txt         # Dependencies
+├── requirements-dev.txt    # Development/testing dependencies
+├── Makefile                 # Dev automation for install, test, run
+├── setup.ps1               # Windows PowerShell automation
+├── setup.py                 # Packaging script for PyPI
+├── version.py              # App version definition (used in config + UI)
+├── test_adv.py             # Advanced test suite for user flows
 └── .gitignore               # Files to exclude from Git
-```
 
----
+```
 
 ## Development Environment Setup
 
@@ -60,6 +66,25 @@ artifact/
    ```bash
    pip install -r requirements.txt
    ```
+
+   Optional: if using dev tools
+
+      ```bash
+      pip install -r requirements-dev.txt
+      ```
+
+   
+   **Makefile**:
+   Developers on Linux/macOS can run:
+      ```bash
+      make install
+      make run
+      ```
+   Windows users can use:
+      ```bash
+      ./setup.ps1
+      ```
+
 
 4. **Create a `.env` file**
    ```env
@@ -92,6 +117,8 @@ Tests are inside the `tests/` directory.
 
 Run all tests:
 ```bash
+make test
+         # or
 pytest
 ```
 

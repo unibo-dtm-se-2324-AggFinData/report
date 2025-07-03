@@ -19,6 +19,11 @@ The typical release process of AggFin platform includes:
 - **Requirements**: All dependencies listed in `requirements.txt`.
 - **Configuration**: Environment variables such as `NEWS_API_KEY`, which is handled securely using a `.env` file.
 - **Database Schema**: The structure defined by SQLAlchemy and managed via Flask-Migrate.
+- **Version Metadata**: Stored in `version.py`, injected in Flask config (`app.config['VERSION']`), rendered in frontend ( footer).
+- **Dev Scripts**: `Makefile` and `setup.ps1` for local install, tests, and run automation.
+- **Advanced Tests**: `test_adv.py` for validating user flows like register, login, and stock search.
+- **Packaging Metadata**: Defined in `setup.py` using `setuptools`, includes name, version, and all required dependencies.
+
 
 ---
 
@@ -34,22 +39,29 @@ AggFin platform is suitable for deployment on any Python-compatible platform, in
 ### Notes:
 - SQLite used for development and for production use, a PostgreSQL or MySQL backend is recommended.
 - HTTPS support configured on any public-facing deployment.
-- No releases published to PyPI, Docker Hub, or similar registries, since project is educational.
-
+- + Project is now published to **PyPI** under name of `aggfindata`, allowing installation via `pip install aggfindata`.
 
 ---
 
 ## How Are They Released?
 
-Releases are now semi-automated and version-controlled.
+Releases are now semi-automated using a GitHub Action CI/CD pipeline. When new version tag is pushed, project will be packaged using `setup.py` and automatically published to PyPI via `twine`.
+Version info is embedded in Flask app at runtime and shown in frontend.
+
 
 ### Deployment & Packaging Strategy:
 
 - Application is versioned using `version.py`
-- Version is loaded after app creation, missed after first submission, and passed via `app.config['VERSION']`
+- Version defined in `version.py`, loaded in Flask using `app.config['VERSION']`,and accessible in templates via Jinja2.
+- Accessible within templates and rendered in the UI (`AggFin v{{ version }}`)
+- GitHub & Release workflow located in `.github/workflows/pypi-deploy.yml`
 - Displayed dynamically on the frontend for future development (footer `home.html`)
 - Each release is tagged using **Semantic Versioning (SemVer)** format
 - Packaged using `setup.py`, then published to **PyPI** using GitHub Actions
+- Footer in `home.html` displays version dynamically (`AggFin v1.0.0`)
+- Local automation uses `Makefile` and `setup.ps1`
+- `setup.py` uses `find_packages()`, `install_requires`, and `classifiers` to build a standard-compliant Python package
+
 
 ### Configuration Steps
 
@@ -109,13 +121,13 @@ code is licensed under **MIT License**, specified in `LICENSE.txt`.
 
 ## Choice of the Versioning Schema
 
-At the moment, Project does not yet use formal release tags, but I will use **Semantic Versioning (SemVer)** convention as a guideline for future updates, which helps keeping track of changes in a consistent and predictable way.
+ Project now follows Semantic Versioning (SemVer) with real version tags and PyPI packaging. Current version defined in `version.py` and used consistently across packaging, app config, and UI display.
 
 Under this versioning scheme, each release will be identified using three numbers:
 ```
 MAJOR.MINOR.PATCH
 ```
-
+- Example: Release `v1.0.0` marked first published version on PyPI.
 - **MAJOR** increased when big changes that break compatibility is adopted, for instance, replacing database system or changing authentication process
 - **MINOR** is for new features, like a stock chart, which does not affect what already works.
 - **PATCH** is for smaller updates, bug fixes, UI adjustments, or minor backend changes that don’t change how users interact with app.

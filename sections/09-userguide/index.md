@@ -88,3 +88,33 @@ This section you can find the details regarding how to use AggFin application fr
 ---
 
 > All screenshots recorded in a safe way to avoid exposing passwords or sensitive API keys. Contents are cropped where needed.
+
+## 9. Behind-the-Scenes & Conceptual Models
+
+While users mostly interact with UI, app also follows certain internal logic and flows. Below are simplified visualizations for better understanding of underlying system:
+
+### Authentication Flow
+
+Illustrates how login credentials flow from user to authentication and back-end:
+
+![Dataflow](../../pictures/diagram/dataflow.png)
+
+---
+
+### User Model Structure
+
+Breakdown of user fields (`id`, `username`, `email`, `password`) and basic transitions (register → login → logout):
+
+![User Model Flow](../../pictures/diagram/user_model.png)
+
+---
+
+### System Class Overview
+
+How different service classes (`AuthService`, `UserRepository`, `FinancialService`) interact with the main `User` and `News` entities:
+
+![Component Roadmap](../../pictures/diagram/comp_roadmap.png)
+
+---
+
+> Diagrams represent simplified conceptual views. I added them to help clarify internal logic of app for documentation and academic reporting purpose of the course.

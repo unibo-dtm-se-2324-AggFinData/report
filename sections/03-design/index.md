@@ -43,6 +43,10 @@ This section is for the strategies for requirements necessary for analysis. In t
 | `templates/`   | Jinja2 templates for all views                     |
 | `config.py`    | App configuration + NewsAPI key                    |
 | `__init__.py`  | App factory and blueprint registration             |
+| `version.py`   | Centralized version definition (used in config + UI) |
+| `test_adv.py`  | Advanced automated tests for core workflows          |
+| `Makefile`     | Dev tool to automate install, test, and run commands |
+
 
 ---
 ## Infrastructure
@@ -146,4 +150,4 @@ Components (server, application logic, templates, and database) on a **single ma
 
 ---
 
-> 💡 *design enables future reshaping toward a more real-time architecture if needed ( Redis for caching, PostgreSQL for scale, background workers for API polling).*
+> *design enables future reshaping toward a more real-time architecture if needed ( Redis for caching, PostgreSQL for scale, background workers for API polling).*

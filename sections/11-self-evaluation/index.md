@@ -16,6 +16,13 @@ I designed and implemented full system(user registration, stock search, and inte
 
 I worked alone for project and I didn’t have code reviews by groupmates or pair programming support to suggest improvements. I had some struggles in environment setup and version control errors, especially with ignored files like `__pycache__` and `.env`.  Some feature had problem in JS coding. Some are not working properly. Hopefully, They will be fixed for presentation day. Some advanced features ( user stock watchlists, saving history, or email verification) were left out because of timing and technical constraints.
 
+**Accmplishments**
+- Integrated automated testing (`test_adv.py`) and measured coverage (67%)
+- Implemented partial CI/CD with GitHub Actions for test + PyPI publish
+- Used `Makefile` and `setup.ps1` to support reproducible workflows for other developers
+- Packaged and published the app to PyPI with version `1.0.0`
+- Injected runtime version metadata and displayed it in the UI
+
 ### My Role in the Project
 
 Since this was a solo project, I had all responsibilities( Planning feature set and project scope, Writing backend in Python. (GPT used for fixing errors.). Syling frontend. User authentication and database integration. Writing unit and integration tests. Manually validating functionality of project requirements. Troubleshooting environment issues ) for completeing the project.
@@ -24,5 +31,6 @@ Since this was a solo project, I had all responsibilities( Planning feature set 
 
 I learnt more than just how to write code, it taught me how to think like a developer. I learned how to:
 Breaking complex problem into smaller steps, troubleshooting bugs systematically, using external libraries, building an end-to-end documented project.
+I also learnt how to prepare a production-ready Python package, design a versioning strategy, and use automated workflows in order to release and test software reliably.
 
 > I did not have a technical background, but AggFin made a confidence for me to build real software in an independente way by myself. It was challenging, but rewarding and useful.
